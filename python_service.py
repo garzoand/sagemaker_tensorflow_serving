@@ -280,7 +280,7 @@ class PythonServiceResource:
             # Randomly pick a port for routing incoming request. We could potentially use some round-robin technique too
             grpc_port = str(int(self._tfs_grpc_port) + 2 * (random.randint(0, TFS_INSTANCE_COUNT -1)))
             rest_port = str(int(self._tfs_rest_port) + 2 * (random.randint(0, TFS_INSTANCE_COUNT -1)))
-            data, context = tfs_utils.parse_request(req, self._tfs_rest_port, grpc_port, self._tfs_default_model_name)
+            data, context = tfs_utils.parse_request(req, rest_port, grpc_port, self._tfs_default_model_name)
             pass
 
         try:
